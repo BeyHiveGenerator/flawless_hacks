@@ -24,10 +24,12 @@ class App extends React.Component {
     console.log('lyrics', this.state.lyrics)
     var randomLyrics = [];
     var lines = 45;
+    let chorus = this.state.lyrics[Math.floor(Math.random() * this.state.lyrics.length)];
     while (randomLyrics.length < 45) {
+      if (randomLyrics.length === 0 || randomLyrics.length === 10 || randomLyrics.length === 20 || randomLyrics.length === 30) {
+        randomLyrics.push(chorus, chorus, chorus)
+      }
       var randomIndex = this.state.lyrics[Math.floor(Math.random() * this.state.lyrics.length)];
-      console.log("Math.floor(Math.random() * this.state.lyrics.length", Math.floor(Math.random() * this.state.lyrics.length))
-      console.log("randomIndex", randomIndex)
       randomLyrics.push(randomIndex)
     }
     this.setState({
@@ -61,10 +63,25 @@ class App extends React.Component {
   }
 
   render () {
-    console.log('heyy', this.state.random)
-    return (<div>
-      <button onClick={() => this.getPos()}>Feeling goooood</button>
+    return (
+      <div style={{"textAlign": "center"}}>
+        How YOU doin'?
+        <br></br>
+        <br></br>
+      <div style={{"textAlign": "center"}}>
+      {/* <button onClick={() => this.getPos()}>Feeling goooood</button>
+      <button onClick={() => this.getNeg()}>Feeling baaad</button> */}
+      <br></br>
+      <br></br>
+      <input placeholder="How are you feeling today?"></input>
+      <br></br>
+      <br></br>
       <button onClick={() => this.getNeg()}>Feeling baaad</button>
+      <button onClick={() => this.getPos()}>Feeling goooood</button>
+      </div>
+      <br></br>
+      <br></br>
+      <div style={{"textAlign": "center"}}>
       {this.state.rendered ?
         this.state.random.map((sentence) => {
           return (
@@ -74,7 +91,7 @@ class App extends React.Component {
         :
         null
       }
-      I woke up this way.
+    </div>
     </div>)
   }
 }
