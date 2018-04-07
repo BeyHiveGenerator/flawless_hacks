@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Sentence from './Sentence.jsx';
+import sentiment from 'sentiment';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,6 +15,8 @@ class App extends React.Component {
     this.getPos = this.getPos.bind(this)
     this.getNeg = this.getNeg.bind(this)
     this.randomization = this.randomization.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -62,6 +65,23 @@ class App extends React.Component {
     })
   }
 
+  handleChange(e) {
+    this.setState({
+      mood: e.target.value
+    });
+  }
+    
+  handleClick() {
+    event.preventDefault();
+    var result = sentiment(this.state.mood);
+    if (result.score >= 0) {
+      this.getPos();
+    } else {
+      this.getNeg();
+    }
+    
+  }
+
   render () {
     return (
       <div style={{"textAlign": "center"}}>
@@ -73,7 +93,12 @@ class App extends React.Component {
       <button onClick={() => this.getNeg()}>Feeling baaad</button> */}
       <br></br>
       <br></br>
-      <input placeholder="How are you feeling today?"></input>
+      <input 
+        type="text"
+        value={this.state.mood}
+        onChange={this.handleChange}
+        placeholder="How are you feeling today?"></input>
+      <button onClick={this.handleClick}>Show Me My Song</button>
       <br></br>
       <br></br>
       <button onClick={() => this.getNeg()}>Feeling baaad</button>

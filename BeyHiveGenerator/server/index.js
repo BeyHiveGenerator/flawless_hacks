@@ -1,6 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var fs = require('fs')
+var fs = require('fs');
+var axios = require('axios');
+
 
 var app = express();
 
@@ -40,7 +42,6 @@ app.get('/neg', function (req, res) {
     console.log('stream done')
   });
 });
-
 
 
 app.listen(3000, function() {
