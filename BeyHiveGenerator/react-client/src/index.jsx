@@ -109,11 +109,12 @@ class App extends React.Component {
       <br></br>
       <div style={{"textAlign": "center"}}>
       {this.state.rendered ?
-        this.state.random.map((sentence) => {
-          return (
-            <Sentence sentence={sentence}/>
-          )
-        })
+        // this.state.random.map((sentence, id) => {
+        //   return (
+            <Sentence items={this.state.random}/>
+        //   )
+        // }
+        // )
         :
         null
       }
