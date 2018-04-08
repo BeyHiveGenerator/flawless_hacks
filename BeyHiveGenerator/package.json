@@ -27,7 +27,6 @@
     "react-beautiful-dnd": "^6.0.2",
     "react-dnd": "^2.6.0",
     "react-dnd-html5-backend": "^2.6.0",
-    "react-dom": "^15.4.2",
     "react-drag-and-drop": "^2.4.0"
   }
 }
