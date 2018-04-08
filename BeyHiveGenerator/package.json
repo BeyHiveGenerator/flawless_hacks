@@ -20,8 +20,14 @@
     "axios": "^0.18.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.0",
+    "prop-types": "^15.6.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "sentiment": "^4.2.0"
+    "sentiment": "^4.2.0",
+    "react-beautiful-dnd": "^6.0.2",
+    "react-dnd": "^2.6.0",
+    "react-dnd-html5-backend": "^2.6.0",
+    "react-dom": "^15.4.2",
+    "react-drag-and-drop": "^2.4.0"
   }
 }
